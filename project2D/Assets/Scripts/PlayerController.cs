@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
                 canWallJump = true;
                 if(canGrabLeft)
                 {
-                    if(Input.GetKey("k"))
+                    if(Input.GetKey("l"))
                     {
                         PlayerGrab();
                     }
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
             {
                 MovePlayer();
                 rb2D.gravityScale = 1f;
-                if(Input.GetKey("k"))
+                if(Input.GetKeyDown("k"))
                 {
                     Dash();
                 }
@@ -173,12 +173,8 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
-        print(rb2D.gravityScale + "grav before changes");
         //rb2D.gravityScale = 1f;
-        print(rb2D.gravityScale + "grav");
-        print(rb2D.velocity + "velocity");
         rb2D.velocity = new Vector2(vectorInput.x * BASE_MOVE_SPEED, 1f * jumpForce);
-        print(rb2D.velocity + "velocity after changes");
     }
 
     private void WallSlide()
@@ -198,6 +194,9 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        rb2D.MovePosition(rb2D.position + vectorInput * dashMultiplier);
+        Debug.Log("dash");
+        rb2D.velocity = vectorInput * dashMultiplier;
+        //rb2D.AddForce(rb2D.position + vectorInput * dashMultiplier);
+        //rb2D.MovePosition(rb2D.position + vectorInput * dashMultiplier);
     }
 }
