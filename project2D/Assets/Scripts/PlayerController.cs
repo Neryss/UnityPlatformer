@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour
     public Sprite[] sprite;
     private SpriteRenderer actualSprite;
     private Vector2 vectorInput;
-    private float moveInput;
-    private float verticalMoveInput;
     private int facing;
 
     [Header("Jump Attributes")]
@@ -70,7 +68,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if(canGrab)
                 {
-                    if(Input.GetKey("k"))
+                    if(Input.GetKey("l"))
                     {
                         PlayerGrab();
                     }
@@ -97,8 +95,6 @@ public class PlayerController : MonoBehaviour
        if(this)
        {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-            moveInput = Input.GetAxisRaw("Horizontal");
-            verticalMoveInput = Input.GetAxisRaw("Vertical");
             vectorInput.x = Input.GetAxisRaw("Horizontal");
             vectorInput.y = Input.GetAxisRaw("Vertical");
        }
