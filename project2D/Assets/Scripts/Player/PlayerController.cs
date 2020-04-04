@@ -86,8 +86,8 @@ public class PlayerController : MonoBehaviour
             }            
             if(!isGrabing)
             {
-                MovePlayer();
                 rb2D.gravityScale = 1f;
+                MovePlayer();
                 if(Input.GetKey("k"))
                 {
                     Dash();
@@ -196,8 +196,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        storedVelocity = rb2D.velocity;
-        rb2D.velocity += vectorInput * dashMultiplier;
+        rb2D.velocity = new Vector2(100, 0);
         //rb2D.MovePosition(rb2D.position + vectorInput * dashMultiplier);
     }
 }
