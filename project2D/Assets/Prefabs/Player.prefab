@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 7668206749204531547}
   - component: {fileID: 7668206749204531546}
   - component: {fileID: 827735164}
-  - component: {fileID: 1499909790}
+  - component: {fileID: 1515127967}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -195,8 +195,10 @@ MonoBehaviour:
   rightGrab: {fileID: 487723040}
   leftGrab: {fileID: 342581902}
   grabCheckRadius: 0.1
---- !u!68 &1499909790
-EdgeCollider2D:
+  wallJumpForce: 0
+  climbSpeed: 2
+--- !u!70 &1515127967
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,18 +210,9 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3459376, y: -0.31272244}
-  - {x: -0.34309667, y: 0.33279872}
-  - {x: -0.30359638, y: 0.35856318}
-  - {x: 0.3196547, y: 0.3575859}
-  - {x: 0.34904647, y: 0.3324225}
-  - {x: 0.34661436, y: -0.31254077}
-  - {x: 0.3238485, y: -0.34128785}
-  - {x: -0.3210389, y: -0.3438456}
-  - {x: -0.34554446, y: -0.3130312}
+  m_Offset: {x: -0.000000029802322, y: -0.022313118}
+  m_Size: {x: 0.6361216, y: 0.68761396}
+  m_Direction: 0
 --- !u!1 &8822057864680413943
 GameObject:
   m_ObjectHideFlags: 0

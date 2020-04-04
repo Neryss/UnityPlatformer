@@ -79,31 +79,7 @@ public class PlayerController : MonoBehaviour
                         WallSlide();
                     }
                 }
-            }
-
-            /*if(Input.GetKey("k"))
-            {
-                if(canGrabLeft)
-                {
-                    PlayerGrab();
-                }
-                if(canGrab)
-                {
-                    PlayerGrab();
-                }
-                if(isGrabing && Input.GetKeyDown("space"))
-                {
-                    print("key pressed");
-                    WallJump();
-                }
-            }
-
-            //Wall slide
-            if(canGrabLeft && moveInput < 0 || canGrab && moveInput > 0)        //Old version, got replaced by the one above 
-            {
-                WallSlide();
-            }*/
-            
+            }            
             if(!isGrabing)
             {
                 MovePlayer();
