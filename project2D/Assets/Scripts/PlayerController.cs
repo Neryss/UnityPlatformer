@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
     private bool isSliding;
     private bool canWallJump;
 
+    [Header("Other")]
+    public float dashMultiplier;
+    public float startDashTime;
+    private float dashTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,11 +87,14 @@ public class PlayerController : MonoBehaviour
             {
                 MovePlayer();
                 rb2D.gravityScale = 1f;
+                if(Input.GetKey("k"))
+                {
+                    Dash();
+                }
             }
             isGrabing = false;
             isSliding = false;
             FacingSprite();
-            Debug.Log("horizontal input :" + vectorInput.x);
         }
     }
 
@@ -114,19 +122,16 @@ public class PlayerController : MonoBehaviour
     {
         if(vectorInput.x > 0)
         {
-            print("entering first swap");
             SwapSprite(2);
             facing = 1;
         }
         if(vectorInput.x < 0)
         {
-            print("entering second swap");
             SwapSprite(1);
             facing = 0;
         }
         else if(vectorInput.x == 0)
         {
-            print("entering last one");
             SwapSprite(0);
         }
     }
@@ -189,5 +194,10 @@ public class PlayerController : MonoBehaviour
     {
         print("wallslide jump : " + rb2D.velocity);
         rb2D.velocity = new Vector2(-vectorInput.x * BASE_MOVE_SPEED, 1f);
+    }
+
+    private void Dash()
+    {
+        rb2D.MovePosition(rb2D.position + vectorInput * dashMultiplier);
     }
 }
