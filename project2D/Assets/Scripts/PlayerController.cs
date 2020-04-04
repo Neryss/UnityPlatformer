@@ -195,8 +195,8 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         Debug.Log("dash");
-        rb2D.velocity = vectorInput * dashMultiplier;
-        //rb2D.AddForce(rb2D.position + vectorInput * dashMultiplier);
+        rb2D.AddForce(vectorInput * dashMultiplier, ForceMode2D.Impulse);
+        print(rb2D.velocity);
         //rb2D.MovePosition(rb2D.position + vectorInput * dashMultiplier);
     }
 }
