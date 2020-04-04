@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public float dashMultiplier;
     public float startDashTime;
     private float dashTime;
+    private Vector2 storedVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
             {
                 MovePlayer();
                 rb2D.gravityScale = 1f;
-                if(Input.GetKeyDown("k"))
+                if(Input.GetKey("k"))
                 {
                     Dash();
                 }
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour
             isGrabing = false;
             isSliding = false;
             FacingSprite();
+            print("velocity :" + rb2D.velocity);
         }
     }
 
@@ -194,9 +196,8 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        Debug.Log("dash");
-        rb2D.AddForce(vectorInput * dashMultiplier, ForceMode2D.Impulse);
-        print(rb2D.velocity);
+        storedVelocity = rb2D.velocity;
+        rb2D.velocity += vectorInput * dashMultiplier;
         //rb2D.MovePosition(rb2D.position + vectorInput * dashMultiplier);
     }
 }

@@ -197,6 +197,8 @@ MonoBehaviour:
   grabCheckRadius: 0.1
   wallJumpForce: 0
   climbSpeed: 2
+  dashMultiplier: 50
+  startDashTime: 0
 --- !u!70 &1515127967
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
