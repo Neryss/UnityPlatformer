@@ -1176,6 +1176,14 @@ PrefabInstance:
       propertyPath: dashMultiplier
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 827735164, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1, type: 3}
+      propertyPath: startDashTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 827735164, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1, type: 3}
+      propertyPath: setSpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7668206749204531544, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1,
         type: 3}
       propertyPath: m_LocalPosition.x

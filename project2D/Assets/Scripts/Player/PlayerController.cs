@@ -31,11 +31,12 @@ public class PlayerController : MonoBehaviour
     private bool isSliding;
     private bool canWallJump;
 
-    [Header("Other")]
-    public float dashMultiplier;
-    public float startDashTime;
-    private float dashTime;
-    private Vector2 storedVelocity;
+    [Header("Dash")]
+    public float setSpeedMultiplier;
+    private float speedMultiplier;
+    public float tempSpeedMultiplier;
+    private float keyPressTime;
+    private bool isDashing;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,26 @@ public class PlayerController : MonoBehaviour
             {
                 PlayerJump();
                 rb2D.gravityScale = 1f;
+            }
+            if(Input.GetKeyDown("k"))
+            {
+                //store the time at which the key was pressed and look if it is less that itself + 2s
+                //if so it executes the dash
+                //Also store the base speedMultiplier that I use to boost the velocity and so, to dash
+                keyPressTime = Time.time;
+                if(Time.time < keyPressTime + 2) //Store this value somewhere and put it in the second if statement
+                {
+                    print("time is less that keypressed and 2s, here's the key press time :" + keyPressTime);
+                    print("key time plus 2s : " + (keyPressTime + 2));
+                    Dash();
+                    print(speedMultiplier);
+                }
+                else  //Need to put another if statement with the ending keytime
+                {
+                    EndDash();
+                }
+                isDashing = false;
+                print("speed mult is :" + speedMultiplier);
             }
             //Grab stuff
             canGrab = Physics2D.OverlapCircle(rightGrab.position, grabCheckRadius, whatIsGround);
@@ -84,19 +105,15 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }            
-            if(!isGrabing)
+            if(!isGrabing && !isDashing)
             {
                 rb2D.gravityScale = 1f;
                 MovePlayer();
-                if(Input.GetKey("k"))
-                {
-                    Dash();
-                }
             }
             isGrabing = false;
             isSliding = false;
             FacingSprite();
-            print("velocity :" + rb2D.velocity);
+            //print("velocity :" + rb2D.velocity);
         }
     }
 
@@ -112,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        rb2D.velocity = new Vector2(vectorInput.x * BASE_MOVE_SPEED, rb2D.velocity.y);
+        rb2D.velocity = new Vector2(vectorInput.x * BASE_MOVE_SPEED + speedMultiplier, rb2D.velocity.y);
     }
 
     private void MovePlayerVertical()
@@ -145,7 +162,6 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerJump()
     {
-        print("is sliding = " + isSliding);
         if(isSliding)
         {
             print(isSliding + "slide");
@@ -196,7 +212,15 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        rb2D.velocity = new Vector2(100, 0);
-        //rb2D.MovePosition(rb2D.position + vectorInput * dashMultiplier);
+        //isDashing = true;
+        //rb2D.velocity = new Vector2(100, 0);
+        //print("dash!");
+        speedMultiplier = setSpeedMultiplier;
+    }
+
+    private void EndDash()
+    {
+        speedMultiplier = 0;
+        print("end dash");
     }
 }
