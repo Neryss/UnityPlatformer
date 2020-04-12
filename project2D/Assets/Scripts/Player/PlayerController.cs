@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
     [Header("Base stuff")]
     public Rigidbody2D rb2D;
     public float BASE_MOVE_SPEED;
-    public Sprite[] sprite;
-    private SpriteRenderer actualSprite;
+    public Animator animator;
     private Vector2 vectorInput;
     private int facing;
 
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        actualSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -112,7 +110,6 @@ public class PlayerController : MonoBehaviour
             }
             isGrabing = false;
             isSliding = false;
-            FacingSprite();
             //print("velocity :" + rb2D.velocity);
         }
     }
@@ -124,6 +121,8 @@ public class PlayerController : MonoBehaviour
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
             vectorInput.x = Input.GetAxisRaw("Horizontal");
             vectorInput.y = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("Horizontal", vectorInput.x);
+            print(animator);
        }
     }
 
@@ -135,29 +134,6 @@ public class PlayerController : MonoBehaviour
     private void MovePlayerVertical()
     {
         rb2D.velocity = new Vector2(rb2D.velocity.x, vectorInput.y * climbSpeed);
-    }
-
-    private void FacingSprite()
-    {
-        if(vectorInput.x > 0)
-        {
-            SwapSprite(2);
-            facing = 1;
-        }
-        if(vectorInput.x < 0)
-        {
-            SwapSprite(1);
-            facing = 0;
-        }
-        else if(vectorInput.x == 0)
-        {
-            SwapSprite(0);
-        }
-    }
-
-    private void SwapSprite(int spriteNb)
-    {
-        actualSprite.sprite = sprite[spriteNb];
     }
 
     private void PlayerJump()
