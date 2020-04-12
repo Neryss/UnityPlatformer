@@ -511,7 +511,7 @@ Tilemap:
       m_TileIndex: 4
       m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 4
+      m_TileColorIndex: 13
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741827
   - first: {x: -18, y: 7, z: 0}
@@ -813,8 +813,8 @@ Tilemap:
     m_Data: {r: 1.8615e-41, g: 1.8615e-41, b: 1.8615e-41, a: 1.8615e-41}
   - m_RefCount: 7
     m_Data: {r: 0.7865797, g: 0.46331647, b: 0.53618693, a: 1}
-  - m_RefCount: 1
-    m_Data: {r: 0.94432676, g: 0.53888154, b: 0.6393048, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 1.8615e-41, g: 1.8615e-41, b: 1.8615e-41, a: 1.8615e-41}
   - m_RefCount: 0
     m_Data: {r: 1.8615e-41, g: 1.8615e-41, b: 1.8615e-41, a: 1.8615e-41}
   - m_RefCount: 6
@@ -831,8 +831,8 @@ Tilemap:
     m_Data: {r: 0.98047006, g: 0.62536585, b: 0.66049445, a: 1}
   - m_RefCount: 2
     m_Data: {r: 0.7291162, g: 0.45949888, b: 0.5361244, a: 1}
-  - m_RefCount: 0
-    m_Data: {r: 1.8615e-41, g: 1.8615e-41, b: 1.8615e-41, a: 1.8615e-41}
+  - m_RefCount: 1
+    m_Data: {r: 0.94432676, g: 0.53888154, b: 0.6393048, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1266,7 +1266,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -1316,6 +1316,31 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1262289265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7668206749204531549, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7668206749492507942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1262289266
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262289265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb34ba4fbb18aa14eb7d0ed512891c51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!213 &1281226075
 Sprite:
   m_ObjectHideFlags: 0
@@ -1510,7 +1535,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -1720,7 +1745,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -2064,7 +2089,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -2274,7 +2299,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -2673,7 +2698,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -2923,7 +2948,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -3133,7 +3158,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -3156,6 +3181,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 827735164, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1262289266}
+    - target: {fileID: 1515127967, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0027806163
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515127967, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3732816
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515127967, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.12499833
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515127967, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48224354
+      objectReference: {fileID: 0}
     - target: {fileID: 7668206749204531544, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3210,6 +3255,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668206749204531547, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2043398478092804721, guid: ce7aef9fe5d20ce409bb38f5f7a393f6,
+        type: 3}
+    - target: {fileID: 7668206749204531547, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7668206749204531549, guid: d0ea28c9a4ae38a4d986be07d4bdb2d1,
         type: 3}
