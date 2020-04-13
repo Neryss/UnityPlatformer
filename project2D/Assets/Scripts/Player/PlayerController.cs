@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrabing;
     private bool isSliding;
     private bool canWallJump;
+    private bool canSlideJump;
 
     [Header("Dash")]
     public float setSpeedMultiplier;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
                 PlayerJump();
                 rb2D.gravityScale = 1f;
             }
+            isSliding = false;
             if(Input.GetKeyDown("k"))
             {
                 //store the time at which the key was pressed and look if it is less that itself + 2s
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if(vectorInput.x < 0)
                     {
+                        canSlideJump = true;
                         WallSlide();
                     }
                 }
@@ -99,18 +102,18 @@ public class PlayerController : MonoBehaviour
                     }
                     else if(vectorInput.x > 0)
                     {
+                        canSlideJump = true;
                         WallSlide();
                     }
                 }
-            }            
-            if(!isGrabing && !isDashing)
+            }
+            if(!isGrabing && !isDashing && !isSliding)
             {
                 rb2D.gravityScale = 1f;
                 MovePlayer();
             }
-            isGrabing = false;
-            isSliding = false;
             //print("velocity :" + rb2D.velocity);
+            isGrabing = false;
         }
     }
 
@@ -122,7 +125,6 @@ public class PlayerController : MonoBehaviour
             vectorInput.x = Input.GetAxisRaw("Horizontal");
             vectorInput.y = Input.GetAxisRaw("Vertical");
             animator.SetFloat("Horizontal", vectorInput.x);
-            print(animator);
        }
     }
 
@@ -138,14 +140,10 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerJump()
     {
-        if(isSliding)
-        {
-            print(isSliding + "slide");
-            WallSlideJump();
-        }        
-        else if(isGrounded)
+        if(isGrounded)
         {
             rb2D.velocity = Vector2.up * jumpForce;
+            Debug.Log("ground jump");
         }
     }
 
@@ -177,13 +175,20 @@ public class PlayerController : MonoBehaviour
         {
             rb2D.velocity = Vector2.up * -0.3f;
             isSliding = true;
+            if(Input.GetKey("space") && canSlideJump)
+            {
+                WallSlideJump();
+                canSlideJump = false;
+                Debug.Log("wallslide jump");
+            }
         }
     }
 
     private void WallSlideJump()
     {
+        rb2D.velocity = new Vector2(-20, 1 * jumpForce);
         print("wallslide jump : " + rb2D.velocity);
-        rb2D.velocity = new Vector2(-vectorInput.x * BASE_MOVE_SPEED, 1f);
+        //rb2D.AddForce(new Vector2(-100, 10));
     }
 
     private void Dash()
