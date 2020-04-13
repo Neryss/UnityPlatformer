@@ -49,12 +49,6 @@ public class PlayerController : MonoBehaviour
     {
         if(this)
         {
-            if(Input.GetKeyDown("space"))
-            {
-                PlayerJump();
-                rb2D.gravityScale = 1f;
-            }
-            isSliding = false;
             if(Input.GetKeyDown("k"))
             {
                 //store the time at which the key was pressed and look if it is less that itself + 2s
@@ -107,13 +101,19 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+            if(Input.GetKeyDown("space"))
+            {
+                PlayerJump();
+                rb2D.gravityScale = 1f;
+            }
+            isSliding = false;
             if(!isGrabing && !isDashing && !isSliding)
             {
                 rb2D.gravityScale = 1f;
                 MovePlayer();
             }
-            //print("velocity :" + rb2D.velocity);
             isGrabing = false;
+            //print("velocity :" + rb2D.velocity);
         }
     }
 
@@ -156,9 +156,10 @@ public class PlayerController : MonoBehaviour
         {
             MovePlayerVertical();
         }
-        if(Input.GetKey("space") && canWallJump)       //seems to work properly instead of GetKeyDown
-        {
+        if(Input.GetKeyDown("space") && canWallJump)        //seems to work properly instead of GetKeyDown
+        {                                                   //recognize input but doesnt change the velocity (it enters the function but has good results 1/10 times)
             WallJump();
+            Debug.Log("Wall jump");
             canWallJump = false;
         }
     }
@@ -166,7 +167,7 @@ public class PlayerController : MonoBehaviour
     private void WallJump()
     {
         //rb2D.gravityScale = 1f;
-        rb2D.velocity = new Vector2(vectorInput.x * BASE_MOVE_SPEED, 1f * jumpForce);
+        rb2D.velocity = new Vector2(vectorInput.x * (BASE_MOVE_SPEED + 5), 1f * jumpForce);
     }
 
     private void WallSlide()
@@ -188,7 +189,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2D.velocity = new Vector2(-20, 1 * jumpForce);
         print("wallslide jump : " + rb2D.velocity);
-        //rb2D.AddForce(new Vector2(-100, 10));
+        //rb2D.AddForce(new Vector2(-20, 10), ForceMode2D.Impulse);
     }
 
     private void Dash()
