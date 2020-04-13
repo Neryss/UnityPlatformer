@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
                         WallSlide();
                     }
                 }
+                canSlideJump = false;
             }
             if(Input.GetKeyDown("space"))
             {
@@ -179,7 +180,6 @@ public class PlayerController : MonoBehaviour
             if(Input.GetKey("space") && canSlideJump)
             {
                 WallSlideJump();
-                canSlideJump = false;
                 Debug.Log("wallslide jump");
             }
         }
